@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('sklads', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->foreignIdFor(\App\Models\User::class);
             $table->timestamps();
         });
     }

@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('balances', function (Blueprint $table) {
             $table->id();
+            $table->decimal('value',8, 2)->default(0);
+            $table->decimal('rezerv',8, 2)->default(0);
+            $table->text('prim')->nullable();
+            $table->foreignIdFor(\App\Models\Sklad::class);
+            $table->foreignIdFor(\App\Models\Product::class);
             $table->timestamps();
         });
     }
